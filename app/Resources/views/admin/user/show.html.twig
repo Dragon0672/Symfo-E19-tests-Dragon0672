@@ -1,0 +1,50 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Isactive</th>
+                <td>{% if user.isActive %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>ROLE</th>
+                <td>{{ user.role }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<hr>
+
+    <ul class="list-unstyled list-inline">
+        <li class="list-inline-item">
+            <a class="btn btn-success" href="{{ path('admin_user_index') }}">Back to the list</a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn btn-primary" href="{{ path('admin_user_edit', { 'id': user.id }) }}">Edit</a>
+        </li>
+        <li class="list-inline-item">
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

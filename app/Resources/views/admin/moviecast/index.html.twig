@@ -1,0 +1,39 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block body %}
+    <h1>Moviecasts list</h1>
+
+        {#<p>
+            <a href="{{ path('moviecast_new') }}" class="btn btn-success btn-sm">Ajouter</a>
+    </p>#}
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Role</th>
+                <th>Ordercredit</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for movieCast in movieCasts %}
+            <tr>
+                <td><a href="{{ path('moviecast_show', { 'id': movieCast.id }) }}">{{ movieCast.id }}</a></td>
+                <td>{{ movieCast.role }}</td>
+                <td>{{ movieCast.orderCredit }}</td>
+                <td>
+                    <ul "list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a href="{{ path('moviecast_show', { 'id': movieCast.id }) }}" class="btn btn-success">show</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="{{ path('moviecast_edit', { 'id': movieCast.id, 'movie_id': movieCast.movie.id }) }}" class="btn btn-primary">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

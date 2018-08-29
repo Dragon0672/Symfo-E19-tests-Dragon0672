@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="picture/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    </head>
+    <body>
+
+        {% block nav %} {% endblock %}
+
+        <div class="container">
+            <div class="row">
+                <nav>
+                    <!-- Si mon utilisateur est authentifié alors j'affiche ses info et le lien de deconnexion -->
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <span class="badge badge-primary"> {{ app.user.username }}</span>
+                        <span class="badge badge-success">{{ app.user.role.name }}</span>
+                        <a href="{{ path('logout') }}" class="my-3"> Se déconnecter </a>
+                    {% else %}{# Sinon je lui propose de se connecter #}
+                        <a href="{{ path('movie_index') }}" class="my-3"> Connexion </a>
+                    {% endif %}                
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col">
+                     {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <footer class="container">
+            {% block randomMovie %}
+                {% if randomMovie is defined %}
+                    Film au hazard :
+                    <a href=" {{ path('movie_show', {'slug': randomMovie.slug}) }}">{{ randomMovie.title }}</a>
+                {% endif %}
+            {% endblock %}
+        </footer>
+       
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

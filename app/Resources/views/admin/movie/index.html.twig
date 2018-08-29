@@ -1,0 +1,45 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block body %}
+    <h1>Movies list</h1>
+
+        <p>
+            <a href="{{ path('movie_new') }}" class="btn btn-success btn-sm">Ajouter</a>
+    </p>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Picture</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for movie in movies %}
+            <tr>
+                <td><a href="{{ path('admin_movie_show', { 'slug': movie.slug }) }}">{{ movie.id }}</a></td>
+                <td>{{ movie.title }}</td>
+                <td>
+                    {#<img src="{{ asset('uploads/pictures/' ~ (movie.picture ?: 'default.png' )) | imagine_filter('thumb_admin_list')}}" />#}
+                    <img src="{{ movie.pictureURL ?: asset('uploads/pictures/default.png') }}" width="42px">
+                </td>
+                <td>
+                    <ul "list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a href="{{ path('admin_movie_show', { 'slug': movie.slug }) }}" class="btn btn-success">show</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="{{ path('movie_edit', { 'id': movie.id }) }}" class="btn btn-primary">edit</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="{{ path('moviecast_new', { 'id': movie.id }) }}" class="btn btn-warning">Ajouter casting</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

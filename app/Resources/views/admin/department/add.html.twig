@@ -1,0 +1,15 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block body %}
+
+    <h1> Ajout secteur d'activité </h1>
+
+    {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+
+        {{ form_row(form) }}
+
+        <button type="submit" class="btn btn-success"> Enregistrer </button>
+    
+    {{ form_end(form) }}
+
+{% endblock %}

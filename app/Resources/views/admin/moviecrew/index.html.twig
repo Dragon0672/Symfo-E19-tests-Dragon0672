@@ -1,0 +1,35 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block body %}
+    <h1>Moviecrews list</h1>
+
+        <p>
+            <a href="{{ path('moviecrew_new') }}" class="btn btn-success btn-sm">Ajouter</a>
+    </p>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for movieCrew in movieCrews %}
+            <tr>
+                <td><a href="{{ path('moviecrew_show', { 'id': movieCrew.id }) }}">{{ movieCrew.id }}</a></td>
+                <td>
+                    <ul "list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a href="{{ path('moviecrew_show', { 'id': movieCrew.id }) }}" class="btn btn-success">show</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="{{ path('moviecrew_edit', { 'id': movieCrew.id }) }}" class="btn btn-primary">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

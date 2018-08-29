@@ -1,0 +1,12 @@
+/.web-server-pid
+/app/config/parameters.yml
+/build/
+/phpunit.xml
+/var/*
+/vendor/
+/web/bundles/
+/web/media/cache/*
+/web/uploads/pictures/*
+!/web/uploads/pictures/default.png
+/.idea
+composer.lock

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1> {{ movie.title}} </h1>
+
+    <h2> Genres </h2>
+
+    {#<img src="{{ asset('uploads/pictures/' ~ (movie.picture ?: 'default.png' )) | imagine_filter('thumb_show')}}" class="img-fluid" style="float:right">#}
+    <img src="{{ movie.pictureURL }}">
+
+    <ul>
+        {% for genre in movie.genres %}
+            <li> {{ genre }}</li>
+        {% else %}
+            <li>Aucun genre associé</li>
+        {% endfor %}
+    </ul>
+
+    <h2> Acteurs </h2>
+
+    <ul>
+        {# @todo : utiliser les resultat de la requete custom pour al recuperation des acteurs #}
+    </ul>
+
+    <ul class="list-unstyled list-inline">
+        <li class="list-inline-item">
+            <a class="btn btn-success" href="{{ path('homepage') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

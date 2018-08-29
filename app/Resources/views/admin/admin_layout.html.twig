@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+
+<nav class="nav">
+    <a href="{{ path('person_index')}}" class="nav-link"> Person </a>
+    <a href="{{ path('department_index')}}" class="nav-link"> Department</a>
+    <a href="{{ path('movie_index')}}" class="nav-link"> Movie</a>
+    <a href="{{ path('moviecast_index')}}" class="nav-link"> MovieCast</a>
+    <a href="{{ path('job_index')}}" class="nav-link"> Job </a>
+    <a href="{{ path('admin_user_index')}}" class="nav-link"> User </a>
+</nav>
+
+{% endblock %}
+
+{% block randomMovie %}{% endblock %}

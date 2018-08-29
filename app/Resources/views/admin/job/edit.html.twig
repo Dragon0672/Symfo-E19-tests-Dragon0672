@@ -1,0 +1,23 @@
+{% extends 'admin/admin_layout.html.twig' %}
+
+{% block body %}
+    <h1> Job edit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edit" class="btn btn-success" />
+    {{ form_end(edit_form) }}
+
+<hr>
+
+    <ul class="list-unstyled list-inline">
+        <li class="list-inline-item">
+            <a class="btn btn-success" href="{{ path('job_index') }}">Back to the list</a>
+        </li>
+        <li class="list-inline-item">
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
