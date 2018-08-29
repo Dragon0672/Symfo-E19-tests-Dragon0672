@@ -30,7 +30,8 @@
             <tr>
                 <th>Image</th>
                 <td>
-                    <img src="{{ asset('uploads/pictures/' ~ (movie.picture ?: 'default.png' )) | imagine_filter('thumb_admin_show') }}">
+                    {#<img src="{{ asset('uploads/pictures/' ~ (movie.picture ?: 'default.png' )) | imagine_filter('thumb_admin_show') }}">#}
+                    <img src="{{ movie.pictureURL ?: asset('uploads/pictures/default.png') }}" width="300px">
                 </td>
             </tr>
         </tbody>

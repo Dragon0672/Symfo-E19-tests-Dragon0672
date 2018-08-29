@@ -12,7 +12,7 @@ class Slugger
 {
     private $isLower;
 
-    public function __construct( $sluggerToLower )
+    public function __construct( $sluggerToLower = true )
     {
         $this->isLower = $sluggerToLower;
     }
