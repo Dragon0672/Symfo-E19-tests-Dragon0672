@@ -27,6 +27,6 @@ class SluggerTest extends TestCase //Test
         $slugger = new Slugger( false);
         $result3 = $slugger->slugify('Hello World'); // Assertion 3 (failure)
 
-        $this->assertEquals('hello-world', $result3);
+        $this->assertEquals('Hello-World', $result3);
     }
 }
