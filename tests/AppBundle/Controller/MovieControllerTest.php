@@ -27,5 +27,30 @@ class MovieControllerTest extends WebTestCase
         $this->assertContains(
             'Liste de films',
                     $crawler->filter('.container .row .col h1')->text());
+        ;
+    }
+
+    public function testMoviepage()
+    {
+        //on creer un navigateur
+        $client = static::createClient();
+
+        //j'accede a mon navigateur sur ma hompegaepage par le biais de l'url racine /
+        $crawler = $client->request('GET', '/');
+
+        //je m'assure que ma page ai bien un code de succès pour continuer mes tests
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
+        $link = $crawler
+            ->filter('.container .row .col .row .col-4:first-child a')->link();
+
+        // and click it
+        $crawler = $client->click($link);
+
+// print_r($crawler->filter('h2'));
+        $this->assertContains(
+            'Acteurs',
+            $crawler->filter('h2')->eq(1)->text());
+            // $crawler->filter('h2 ~ h2')->text());
     }
 }
