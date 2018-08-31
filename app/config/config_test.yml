@@ -17,3 +17,8 @@ swiftmailer:
 
 parameters:
     database_name: gs17exo_events_test
+
+security:
+    firewalls:
+        main:
+            http_basic: ~

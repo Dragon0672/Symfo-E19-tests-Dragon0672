@@ -43,16 +43,16 @@ class AppFixtures extends Fixture{
 
           $userAdmin = new User();
           $userAdmin->setUsername('admin1');
-          $userAdmin->setEmail('user20@oclock.io');
-          $userAdmin->setPassword($this->encoder->encodePassword($userAdmin, 'admin123'));
+          $userAdmin->setEmail('admin1@oclock.io');
+          $userAdmin->setPassword($this->encoder->encodePassword($userAdmin, '123'));
           $userAdmin->setRole($roleAdmin);
 
           $manager->persist($userAdmin);
 
           $userAdmin = new User();
           $userAdmin->setUsername('admin2');
-          $userAdmin->setEmail('user21@oclock.io');
-          $userAdmin->setPassword($this->encoder->encodePassword($userAdmin, 'admin123'));
+          $userAdmin->setEmail('admin2@oclock.io');
+          $userAdmin->setPassword($this->encoder->encodePassword($userAdmin, '123'));
           $userAdmin->setRole($roleAdmin);
 
           $manager->persist($userAdmin);
@@ -60,16 +60,16 @@ class AppFixtures extends Fixture{
           //ROLE_USER
           $userUser = new User();
           $userUser->setUsername('user1');
-          $userUser->setEmail('user22@oclock.io');
-          $userUser->setPassword($this->encoder->encodePassword($userUser, 'user123'));
+          $userUser->setEmail('user1@oclock.io');
+          $userUser->setPassword($this->encoder->encodePassword($userUser, '123'));
           $userUser->setRole($roleUser);
 
           $manager->persist($userUser);
 
           $userUser = new User();
           $userUser->setUsername('user2');
-          $userUser->setEmail('user23@oclock.io');
-          $userUser->setPassword($this->encoder->encodePassword($userUser, 'user123'));
+          $userUser->setEmail('user2@oclock.io');
+          $userUser->setPassword($this->encoder->encodePassword($userUser, '123'));
           $userUser->setRole($roleUser);
 
           $manager->persist($userUser);
